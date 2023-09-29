@@ -79,18 +79,18 @@ public class RadioTest {
     @Test
     public void shouldSetMaxVolume() {
         Radio radio = new Radio();
-        radio.currentVolume = 100;
+        radio.setVolume(100);
         int expected = 100;
-        int actual = radio.currentVolume;
+        int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldSetMinVolume() {
         Radio radio = new Radio();
-        radio.currentVolume = 0;
+        radio.setVolume(0);
         int expected = 0;
-        int actual = radio.currentVolume;
+        int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
 

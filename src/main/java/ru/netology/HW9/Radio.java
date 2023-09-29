@@ -2,13 +2,16 @@ package ru.netology.HW9;
 
 public class Radio {
     private int radioStation;
+    private int currentVolume;
 
-
-    public int getRadioStation() {            //сеттеры и геттеры для станций задаем
+    public int getRadioStation() {
         return radioStation;
     }
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
 
-    public void setRadioStation(int newRadioStation) {     //инкапсуляция станций
+    public void setRadioStation(int newRadioStation) {
 
         if (newRadioStation > 9) {
             return;
@@ -19,30 +22,23 @@ public class Radio {
         radioStation = newRadioStation;
     }
 
-    public void nextRadioStation() {                     //правило переключения с 9 на 0
+    public void nextRadioStation() {
 
         if (radioStation < 9) {
             radioStation = radioStation + 1;
         } else radioStation = 0;
-        int next = radioStation;
+
     }
 
-    public void prevRadioStation() {                      //правило переключения с 0 на 9
+    public void prevRadioStation() {
 
         if (radioStation > 0) {
             radioStation = radioStation - 1;
         } else radioStation = 9;
-        int prev = radioStation;
+
     }
 
-
-    public int currentVolume;                      //переменная звука
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setVolume(int newCurrentVolume) {     //сеттер звука
+    public void setVolume(int newCurrentVolume) {
 
         if (newCurrentVolume > 100) {
             newCurrentVolume = 100;
@@ -53,13 +49,13 @@ public class Radio {
         currentVolume = newCurrentVolume;
     }
 
-    public void increaseVolume() {                       //правило прибавления звука
+    public void increaseVolume() {
         if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
     }
 
-    public void reduseVolume() {                           //правило уменьшения звука
+    public void reduseVolume() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
