@@ -5,12 +5,38 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
 
-    //Станции
+    //Станции настройка количества
+
+    @Test
+    public void settingMaxStations() {
+        Radio radio = new Radio(10);
+        Assertions.assertEquals(10, radio.getAmountStations());
+    }
+    @Test
+    public void settingNoStations() {
+        Radio radio = new Radio();
+        Assertions.assertEquals(10, radio.getAmountStations());
+    }  @Test
+    public void settingMin() {
+        Radio radio = new Radio(1);
+        Assertions.assertEquals(1, radio.getAmountStations());
+    }
+    @Test
+    public void settingInvalidStations() {
+        Radio radio = new Radio(50);
+        Assertions.assertEquals(10, radio.getAmountStations());
+    }
+    @Test
+    public void settingInvalidStations2() {
+        Radio radio = new Radio(-1);
+        Assertions.assertEquals(10, radio.getAmountStations());
+    }
+
+    //Переключение станций
 
     @Test
     public void shouldTurntoPrevFrom0() {
         Radio radio = new Radio();
-        radio.setRadioStation(0);
         radio.prevRadioStation();
         int expected = 9;
         int actual = radio.getRadioStation();
@@ -30,7 +56,6 @@ public class RadioTest {
     @Test
     public void shouldTurntoNextInlimit() {
         Radio radio = new Radio();
-        radio.setRadioStation(0);
         radio.nextRadioStation();
         int expected = 1;
         int actual = radio.getRadioStation();
@@ -125,7 +150,6 @@ public class RadioTest {
     @Test
     public void shouldIncreaseVolumeBorderDown() {
         Radio radio = new Radio();
-        radio.setVolume(0);
         radio.increaseVolume();
         int expected = 1;
         int actual = radio.getCurrentVolume();
@@ -165,7 +189,6 @@ public class RadioTest {
     @Test
     public void shouldNotSetVolumeUnder0() {
         Radio radio = new Radio();
-        radio.setVolume(0);
         radio.reduseVolume();
         int expected = 0;
         int actual = radio.getCurrentVolume();
