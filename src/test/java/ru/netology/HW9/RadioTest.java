@@ -74,6 +74,31 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void test() {
+        Radio radio = new Radio(10);
+        Assertions.assertEquals(10, radio.getAmountStations());
+    }
+    @Test
+    public void test1() {
+        Radio radio = new Radio();
+        Assertions.assertEquals(10, radio.getAmountStations());
+    }  @Test
+    public void test2() {
+        Radio radio = new Radio(1);
+        Assertions.assertEquals(1, radio.getAmountStations());
+    }
+    @Test
+    public void test3() {
+        Radio radio = new Radio(50);
+        Assertions.assertEquals(10, radio.getAmountStations());
+    }
+    @Test
+    public void test4() {
+        Radio radio = new Radio(-1);
+        Assertions.assertEquals(10, radio.getAmountStations());
+    }
+
     // Звук
 
     @Test
