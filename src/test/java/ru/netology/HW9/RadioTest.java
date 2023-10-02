@@ -12,20 +12,25 @@ public class RadioTest {
         Radio radio = new Radio(10);
         Assertions.assertEquals(10, radio.getAmountStations());
     }
+
     @Test
     public void settingNoStations() {
         Radio radio = new Radio();
         Assertions.assertEquals(10, radio.getAmountStations());
-    }  @Test
+    }
+
+    @Test
     public void settingMin() {
         Radio radio = new Radio(1);
         Assertions.assertEquals(1, radio.getAmountStations());
     }
+
     @Test
     public void settingInvalidStations() {
         Radio radio = new Radio(50);
         Assertions.assertEquals(10, radio.getAmountStations());
     }
+
     @Test
     public void settingInvalidStations2() {
         Radio radio = new Radio(-1);
