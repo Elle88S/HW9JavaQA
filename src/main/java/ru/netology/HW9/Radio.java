@@ -10,26 +10,29 @@ public class Radio {
     private int maxVolume = 100;
     private int minVolume = 0;
 
-    public Radio(int amountStations){
+    public Radio(int amountStations) {
 
         if (amountStations > 10) {
             return;
         }
-        if (amountStations <0) {
+        if (amountStations < 0) {
             return;
         }
         this.amountStations = amountStations;
     }
-    public Radio (){
+
+    public Radio() {
         int amountStation = 10;
     }
 
     public int getRadioStation() {
         return radioStation;
     }
-    public int getAmountStations(){
+
+    public int getAmountStations() {
         return amountStations;
     }
+
     public int getCurrentVolume() {
         return currentVolume;
     }
