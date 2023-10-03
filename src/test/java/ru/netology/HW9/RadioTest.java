@@ -26,17 +26,18 @@ public class RadioTest {
     }
 
     @Test
-    public void settingInvalidStations() {
-        Radio radio = new Radio(50);
+    public void settingInvalid() {
+        Radio radio = new Radio();
+        radio.setAmountStations(0);
         Assertions.assertEquals(10, radio.getAmountStations());
     }
 
     @Test
-    public void settingInvalidStations2() {
-        Radio radio = new Radio(-1);
+    public void settingInvalid2() {
+        Radio radio = new Radio();
+        radio.setAmountStations(50);
         Assertions.assertEquals(10, radio.getAmountStations());
     }
-
     //Переключение станций
 
     @Test
