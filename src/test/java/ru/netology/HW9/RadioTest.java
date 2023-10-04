@@ -7,6 +7,18 @@ public class RadioTest {
 
     //Станции настройка количества
 
+
+    @Test
+    public void setting() {
+        Radio radio = new Radio();
+        radio.setAmountStations(20);
+        radio.setRadioStation(15);
+        int expected = 0;
+        int actual = radio.getRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+
     @Test
     public void settingMaxStations() {
         Radio radio = new Radio(10);
