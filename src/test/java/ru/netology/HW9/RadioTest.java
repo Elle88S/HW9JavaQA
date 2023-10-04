@@ -11,7 +11,6 @@ public class RadioTest {
     @Test
     public void setting() {
         Radio radio = new Radio();
-        radio.setAmountStations(20);
         radio.setRadioStation(15);
         int expected = 0;
         int actual = radio.getRadioStation();
