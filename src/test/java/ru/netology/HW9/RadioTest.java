@@ -10,7 +10,7 @@ public class RadioTest {
 
     @Test
     public void setting() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(20);
         radio.setRadioStation(15);
         int expected = 0;
         int actual = radio.getRadioStation();
