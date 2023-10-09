@@ -2,16 +2,16 @@ package ru.netology.HW9;
 
 public class Radio {
 
-    private int amountStations = 20;
+    private int amountStations = 10;
     private int firstRadioStation = 0;
-    private int lastRadioStation = 19;
+    private int lastRadioStation = 9;
     private int radioStation;
     private int currentVolume;
     private int maxVolume = 100;
     private int minVolume = 0;
 
     public Radio() {
-        int amountStation = 20;
+        int amountStation = 10;
     }
 
     public Radio(int amountStations) {
