@@ -12,7 +12,7 @@ public class RadioTest {
     public void setting() {
         Radio radio = new Radio();
         radio.setRadioStation(15);
-        int expected = 0;
+        int expected = 15;
         int actual = radio.getRadioStation();
         Assertions.assertEquals(expected, actual);
     }
@@ -20,14 +20,14 @@ public class RadioTest {
 
     @Test
     public void settingMaxStations() {
-        Radio radio = new Radio(10);
-        Assertions.assertEquals(10, radio.getAmountStations());
+        Radio radio = new Radio(20);
+        Assertions.assertEquals(20, radio.getAmountStations());
     }
 
     @Test
     public void settingNoStations() {
         Radio radio = new Radio();
-        Assertions.assertEquals(10, radio.getAmountStations());
+        Assertions.assertEquals(20, radio.getAmountStations());
     }
 
     @Test
@@ -37,17 +37,31 @@ public class RadioTest {
     }
 
     @Test
+    public void settingInLimit() {
+        Radio radio = new Radio(5);
+        Assertions.assertEquals(5, radio.getAmountStations());
+    }
+
+
+    @Test
     public void settingInvalid() {
         Radio radio = new Radio();
         radio.setAmountStations(0);
-        Assertions.assertEquals(10, radio.getAmountStations());
+        Assertions.assertEquals(20, radio.getAmountStations());
     }
 
     @Test
     public void settingInvalid2() {
         Radio radio = new Radio();
-        radio.setAmountStations(50);
-        Assertions.assertEquals(10, radio.getAmountStations());
+        radio.setAmountStations(21);
+        Assertions.assertEquals(20, radio.getAmountStations());
+    }
+
+    @Test
+    public void settingInvalid3() {
+        Radio radio = new Radio();
+        radio.setAmountStations(-1);
+        Assertions.assertEquals(20, radio.getAmountStations());
     }
     //Переключение станций
 
@@ -55,7 +69,7 @@ public class RadioTest {
     public void shouldTurntoPrevFrom0() {
         Radio radio = new Radio();
         radio.prevRadioStation();
-        int expected = 9;
+        int expected = 19;
         int actual = radio.getRadioStation();
         Assertions.assertEquals(expected, actual);
     }
@@ -63,7 +77,7 @@ public class RadioTest {
     @Test
     public void shouldTurntoNextFrom9() {
         Radio radio = new Radio();
-        radio.setRadioStation(9);
+        radio.setRadioStation(19);
         radio.nextRadioStation();
         int expected = 0;
         int actual = radio.getRadioStation();
@@ -101,7 +115,7 @@ public class RadioTest {
     @Test
     public void shouldNotSetInvalidStation() {
         Radio radio = new Radio();
-        radio.setRadioStation(12);
+        radio.setRadioStation(21);
         int expected = 0;
         int actual = radio.getRadioStation();
         Assertions.assertEquals(expected, actual);

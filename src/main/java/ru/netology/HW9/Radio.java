@@ -2,9 +2,9 @@ package ru.netology.HW9;
 
 public class Radio {
 
-    private int amountStations;
+    private int amountStations = 20;
     private int firstRadioStation = 0;
-    private int lastRadioStation = 9;
+    private int lastRadioStation = 19;
     private int radioStation;
     private int currentVolume;
     private int maxVolume = 100;
@@ -16,6 +16,7 @@ public class Radio {
 
     public Radio(int amountStations) {
         this.amountStations = amountStations;
+        amountStations = lastRadioStation + 1;
     }
 
     public int getRadioStation() {
@@ -30,11 +31,17 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setAmountStations(int amountStations) {
-        if (amountStations > lastRadioStation + 1) {
+    public void setAmountStations(int newAmountStations) {
+
+        if (newAmountStations > lastRadioStation + 1) {
             return;
         }
+        if (newAmountStations < firstRadioStation) {
+            return;
+        }
+        newAmountStations = amountStations;
     }
+
 
     public void setRadioStation(int newRadioStation) {
 
