@@ -5,7 +5,46 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
 
-    //Станции
+    //Станции настройка количества
+
+
+    @Test
+    public void setting() {
+        Radio radio = new Radio(20);
+        radio.setRadioStation(15);
+        int expected = 15;
+        int actual = radio.getRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void settingBehindLimit() {
+        Radio radio = new Radio(20);
+        radio.setAmountStations(21);
+        int expected = 20;
+        int actual = radio.getAmountStations();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void settingBelowLimit() {
+        Radio radio = new Radio(20);
+        radio.setAmountStations(0);
+        int expected = 20;
+        int actual = radio.getAmountStations();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void NoSettingLimit() {
+        Radio radio = new Radio();
+        int expected = 10;
+        int actual = radio.getAmountStations();
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    //Переключение станций
 
     @Test
     public void shouldTurntoPrevFrom0() {
@@ -30,7 +69,6 @@ public class RadioTest {
     @Test
     public void shouldTurntoNextInlimit() {
         Radio radio = new Radio();
-        radio.setRadioStation(0);
         radio.nextRadioStation();
         int expected = 1;
         int actual = radio.getRadioStation();
@@ -59,7 +97,7 @@ public class RadioTest {
     @Test
     public void shouldNotSetInvalidStation() {
         Radio radio = new Radio();
-        radio.setRadioStation(12);
+        radio.setRadioStation(11);
         int expected = 0;
         int actual = radio.getRadioStation();
         Assertions.assertEquals(expected, actual);
@@ -73,6 +111,7 @@ public class RadioTest {
         int actual = radio.getRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+
 
     // Звук
 
@@ -125,7 +164,6 @@ public class RadioTest {
     @Test
     public void shouldIncreaseVolumeBorderDown() {
         Radio radio = new Radio();
-        radio.setVolume(0);
         radio.increaseVolume();
         int expected = 1;
         int actual = radio.getCurrentVolume();
@@ -165,7 +203,6 @@ public class RadioTest {
     @Test
     public void shouldNotSetVolumeUnder0() {
         Radio radio = new Radio();
-        radio.setVolume(0);
         radio.reduseVolume();
         int expected = 0;
         int actual = radio.getCurrentVolume();
