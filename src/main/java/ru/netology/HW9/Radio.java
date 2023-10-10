@@ -3,8 +3,6 @@ package ru.netology.HW9;
 public class Radio {
 
     private int maxStations;
-    private int allStations;
-
     private int radioStation;
     private int currentVolume;
     private int maxVolume = 100;
