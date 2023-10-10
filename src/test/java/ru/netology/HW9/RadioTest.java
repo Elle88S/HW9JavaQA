@@ -12,62 +12,44 @@ public class RadioTest {
     public void setting() {
         Radio radio = new Radio(20);
         radio.setRadioStation(15);
-        int expected = 0;
+        int expected = 15;
         int actual = radio.getRadioStation();
         Assertions.assertEquals(expected, actual);
     }
 
-
     @Test
-    public void settingMaxStations() {
-        Radio radio = new Radio(10);
-        Assertions.assertEquals(10, radio.getAmountStations());
+    public void settingBehindLimit() {
+        Radio radio = new Radio(20);
+        radio.setAmountStations(21);
+        int expected = 20;
+        int actual = radio.getAmountStations();
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void settingNoStations() {
-        Radio radio = new Radio();
-        Assertions.assertEquals(10, radio.getAmountStations());
-    }
-
-    @Test
-    public void settingMin() {
-        Radio radio = new Radio(1);
-        Assertions.assertEquals(1, radio.getAmountStations());
-    }
-
-    @Test
-    public void settingInLimit() {
-        Radio radio = new Radio(5);
-        Assertions.assertEquals(5, radio.getAmountStations());
-    }
-
-
-    @Test
-    public void settingInvalid() {
-        Radio radio = new Radio();
+    public void settingBelowLimit() {
+        Radio radio = new Radio(20);
         radio.setAmountStations(0);
-        Assertions.assertEquals(10, radio.getAmountStations());
+        int expected = 20;
+        int actual = radio.getAmountStations();
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void settingInvalid2() {
+    public void NoSettingLimit() {
         Radio radio = new Radio();
-        radio.setAmountStations(11);
-        Assertions.assertEquals(10, radio.getAmountStations());
+        int expected = 10;
+        int actual = radio.getAmountStations();
+        Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public void settingInvalid3() {
-        Radio radio = new Radio();
-        radio.setAmountStations(-1);
-        Assertions.assertEquals(10, radio.getAmountStations());
-    }
+
     //Переключение станций
 
     @Test
     public void shouldTurntoPrevFrom0() {
         Radio radio = new Radio();
+        radio.setRadioStation(0);
         radio.prevRadioStation();
         int expected = 9;
         int actual = radio.getRadioStation();
@@ -129,6 +111,7 @@ public class RadioTest {
         int actual = radio.getRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+
 
     // Звук
 

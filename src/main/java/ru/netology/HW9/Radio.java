@@ -2,21 +2,20 @@ package ru.netology.HW9;
 
 public class Radio {
 
-    private int amountStations = 10;
-    private int firstRadioStation = 0;
-    private int lastRadioStation = 9;
+    private int maxStations;
+    private int allStations;
+
     private int radioStation;
     private int currentVolume;
     private int maxVolume = 100;
     private int minVolume = 0;
 
     public Radio() {
-        int amountStation = 10;
+        this.maxStations = 9;
     }
 
     public Radio(int amountStations) {
-        this.amountStations = amountStations;
-        amountStations = lastRadioStation + 1;
+        this.maxStations = amountStations - 1;
     }
 
     public int getRadioStation() {
@@ -24,7 +23,7 @@ public class Radio {
     }
 
     public int getAmountStations() {
-        return amountStations;
+        return maxStations + 1;
     }
 
     public int getCurrentVolume() {
@@ -33,22 +32,19 @@ public class Radio {
 
     public void setAmountStations(int newAmountStations) {
 
-        if (newAmountStations > lastRadioStation + 1) {
+        if (newAmountStations > maxStations + 1) {
             return;
         }
-        if (newAmountStations < firstRadioStation) {
-            return;
-        }
-        newAmountStations = amountStations;
+        newAmountStations = maxStations;
     }
 
 
     public void setRadioStation(int newRadioStation) {
 
-        if (newRadioStation > lastRadioStation) {
+        if (newRadioStation > maxStations) {
             return;
         }
-        if (newRadioStation < firstRadioStation) {
+        if (newRadioStation < 0) {
             return;
         }
         radioStation = newRadioStation;
@@ -56,17 +52,17 @@ public class Radio {
 
     public void nextRadioStation() {
 
-        if (radioStation < lastRadioStation) {
+        if (radioStation < maxStations) {
             radioStation = radioStation + 1;
-        } else radioStation = firstRadioStation;
+        } else radioStation = 0;
 
     }
 
     public void prevRadioStation() {
 
-        if (radioStation > firstRadioStation) {
+        if (radioStation > 0) {
             radioStation = radioStation - 1;
-        } else radioStation = lastRadioStation;
+        } else radioStation = maxStations;
 
     }
 
